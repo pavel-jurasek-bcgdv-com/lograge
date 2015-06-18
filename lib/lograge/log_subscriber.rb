@@ -76,6 +76,7 @@ module Lograge
     def custom_options(data, event)
       options = Lograge.custom_options(event)
       data.merge! options if options
+      data.merge! event.payload[:custom_payload] || {}
     end
 
     def before_format(data, payload)
